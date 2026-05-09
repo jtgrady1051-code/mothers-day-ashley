@@ -1,0 +1,449 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap');
+
+:root {
+  --rose: #E8A0BF;
+  --light-pink: #F7CAD0;
+  --blush: #FFE4E8;
+  --mauve: #B784A7;
+  --deep-rose: #9B4F72;
+  --cream: #FFF9FA;
+  --white: #FFFFFF;
+  --text-dark: #3D2B35;
+  --text-mid: #6B4F5A;
+  --shadow: rgba(183, 132, 167, 0.25);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Lato', sans-serif;
+  background-color: var(--cream);
+  color: var(--text-dark);
+  line-height: 1.7;
+}
+
+/* ── NAV ── */
+.site-nav {
+  background: var(--white);
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 12px var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.nav-logo {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.7rem;
+  color: var(--deep-rose);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.25rem;
+  list-style: none;
+  flex-wrap: wrap;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-mid);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--deep-rose); }
+
+/* ── HERO ── */
+.hero {
+  background: linear-gradient(150deg, #FDE8EF 0%, #F7CAD0 45%, #E8A0BF 100%);
+  text-align: center;
+  padding: 5.5rem 2rem 4.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before,
+.hero::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.12;
+}
+
+.hero::before {
+  width: 450px; height: 450px;
+  background: var(--mauve);
+  top: -180px; left: -120px;
+}
+
+.hero::after {
+  width: 320px; height: 320px;
+  background: var(--deep-rose);
+  bottom: -110px; right: -90px;
+}
+
+.hero-flowers {
+  font-size: 2.6rem;
+  display: block;
+  margin-bottom: 1.25rem;
+  animation: sway 5s ease-in-out infinite;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes sway {
+  0%, 100% { transform: rotate(-4deg) scale(1); }
+  50%       { transform: rotate(4deg) scale(1.06); }
+}
+
+.hero h1 {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(2.8rem, 7vw, 5.5rem);
+  color: var(--deep-rose);
+  line-height: 1.15;
+  margin-bottom: 0.75rem;
+  animation: fadeUp 0.9s ease both;
+  position: relative;
+  z-index: 1;
+}
+
+.hero .subtitle {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  color: var(--text-mid);
+  animation: fadeUp 0.9s 0.2s ease both;
+  position: relative;
+  z-index: 1;
+}
+
+.hero .tagline {
+  margin-top: 0.6rem;
+  font-size: 1rem;
+  color: var(--text-mid);
+  animation: fadeUp 0.9s 0.4s ease both;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── LAYOUT ── */
+.container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+
+.section { padding: 3.5rem 0; }
+
+/* ── DECORATIVE ── */
+.divider {
+  text-align: center;
+  color: var(--rose);
+  font-size: 1.4rem;
+  letter-spacing: 0.6rem;
+  margin: 0.5rem 0 2rem;
+}
+
+.section-title {
+  text-align: center;
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.6rem;
+  color: var(--deep-rose);
+  margin-bottom: 0.4rem;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: var(--text-mid);
+  font-style: italic;
+  margin-bottom: 2.5rem;
+}
+
+/* ── PHOTO PLACEHOLDERS ── */
+.photo-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #FFE4E8 0%, #F7CAD0 60%, #E8A0BF 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  border: 2px dashed var(--rose);
+  border-radius: inherit;
+}
+
+.ph-icon { font-size: 2.8rem; }
+
+.ph-text {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--text-mid);
+}
+
+/* ── FAMILY PHOTO GRID (landing) ── */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.photo-slot {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 24px var(--shadow);
+  aspect-ratio: 4 / 3;
+}
+
+.photo-slot img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── PERSON CARDS ── */
+.person-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
+  gap: 1.5rem;
+}
+
+.person-card {
+  background: var(--white);
+  border-radius: 20px;
+  padding: 2rem 1.25rem;
+  text-align: center;
+  box-shadow: 0 6px 24px var(--shadow);
+  text-decoration: none;
+  transition: transform 0.25s, box-shadow 0.25s;
+  border-top: 5px solid var(--rose);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.person-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 16px 44px var(--shadow);
+}
+
+.card-avatar {
+  width: 88px; height: 88px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--light-pink), var(--rose));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.1rem;
+  font-size: 2.4rem;
+  border: 3px solid var(--white);
+  box-shadow: 0 0 0 3px var(--rose);
+}
+
+.card-name {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.8rem;
+  color: var(--deep-rose);
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.card-desc {
+  font-size: 0.82rem;
+  color: var(--text-mid);
+  font-style: italic;
+  flex-grow: 1;
+}
+
+.card-btn {
+  display: inline-block;
+  margin-top: 1.1rem;
+  padding: 0.5rem 1.3rem;
+  background: linear-gradient(135deg, var(--rose), var(--mauve));
+  color: var(--white);
+  border-radius: 50px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* ── INDIVIDUAL PAGE HERO ── */
+.page-hero {
+  background: linear-gradient(150deg, #FDE8EF 0%, #F7CAD0 45%, #E8A0BF 100%);
+  text-align: center;
+  padding: 3.5rem 2rem 3rem;
+}
+
+.back-btn {
+  display: inline-block;
+  margin-bottom: 2rem;
+  color: var(--deep-rose);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 2px solid var(--rose);
+  border-radius: 50px;
+  padding: 0.4rem 1.1rem;
+  transition: background 0.2s, color 0.2s;
+}
+
+.back-btn:hover { background: var(--rose); color: var(--white); }
+
+.from-label {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  color: var(--text-mid);
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+}
+
+.page-hero h1 {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(2.6rem, 7vw, 5rem);
+  color: var(--deep-rose);
+  line-height: 1.15;
+}
+
+.to-label {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  color: var(--text-mid);
+  font-size: 1.15rem;
+  margin-top: 0.5rem;
+}
+
+/* ── PROFILE PHOTO ── */
+.profile-photo-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 3rem 0 0.5rem;
+}
+
+.profile-photo {
+  width: 210px; height: 210px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 6px solid var(--white);
+  box-shadow: 0 6px 32px var(--shadow);
+}
+
+.profile-photo .photo-placeholder { border-radius: 50%; }
+
+/* ── REASONS ── */
+.reasons-section {
+  background: var(--white);
+  border-radius: 24px;
+  padding: 3rem;
+  box-shadow: 0 6px 30px var(--shadow);
+  margin: 2rem 0;
+}
+
+.reasons-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.3rem;
+  color: var(--deep-rose);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.reasons-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.reasons-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.2rem 1.4rem;
+  background: var(--cream);
+  border-radius: 12px;
+  border-left: 4px solid var(--rose);
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.reason-num {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2rem;
+  color: var(--rose);
+  line-height: 1;
+  flex-shrink: 0;
+  width: 2rem;
+  text-align: center;
+}
+
+/* ── GALLERY (individual pages) ── */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(195px, 1fr));
+  gap: 1.25rem;
+}
+
+.gallery-slot {
+  aspect-ratio: 1;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px var(--shadow);
+}
+
+.gallery-slot img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── CLOSING ── */
+.closing-message {
+  text-align: center;
+  padding: 2.5rem 2rem 1rem;
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.9rem;
+  color: var(--deep-rose);
+}
+
+/* ── FOOTER ── */
+footer {
+  background: linear-gradient(135deg, var(--deep-rose), var(--mauve));
+  color: var(--white);
+  text-align: center;
+  padding: 2.5rem 2rem;
+  margin-top: 4rem;
+}
+
+.footer-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2rem;
+  margin-bottom: 0.4rem;
+}
+
+.footer-subtitle { font-size: 0.9rem; opacity: 0.85; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 700px) {
+  .person-cards { grid-template-columns: repeat(2, 1fr); }
+  .reasons-section { padding: 2rem 1.25rem; }
+  .photo-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 420px) {
+  .person-cards { grid-template-columns: 1fr 1fr; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+}
