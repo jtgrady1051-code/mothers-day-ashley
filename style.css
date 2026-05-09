@@ -425,6 +425,39 @@ body {
   display: block;
 }
 
+/* ── INTERVIEW Q&A ── */
+.interview-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.interview-item {
+  padding: 1.25rem 1.5rem;
+  background: var(--cream);
+  border-radius: 12px;
+  border-left: 4px solid var(--rose);
+}
+
+.interview-final {
+  border-left-color: var(--deep-rose);
+  background: linear-gradient(135deg, #FDE8EF, #F7CAD0);
+}
+
+.interview-q {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  color: var(--deep-rose);
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+.interview-a {
+  color: var(--text-dark);
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
 /* ── CLOSING ── */
 .closing-message {
   text-align: center;
